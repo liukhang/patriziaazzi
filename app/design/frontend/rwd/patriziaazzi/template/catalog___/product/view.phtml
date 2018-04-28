@@ -1,0 +1,326 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<?php $comingSoon = $_product->getAttributeText('coming_soon'); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<div class="product-view">
+    <div class="product-essential">
+        <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+            <?php echo $this->getBlockHtml('formkey') ?>
+            <div class="no-display">
+                <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+                <input type="hidden" name="related_product" id="related-products-field" value="" />
+            </div>
+			<div class="container">
+				<div class="product-img-box">
+					<?php echo $this->getChildHtml('media') ?>
+					
+				</div>
+
+				<div class="product-shop">
+					 <div class="product-name">
+						<h1 class="h1"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+					</div>
+					<?php if ($_product->getShortDescription()):?>
+						<div class="short-description">
+							<div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+						</div>
+					<?php endif;?>
+					<div class="price-info">
+						<?php echo $this->getPriceHtml($_product); ?>
+						<?php echo $this->getChildHtml('bundle_prices') ?>
+						<?php echo $this->getTierPriceHtml() ?>
+					</div>
+
+					<div class="extra-info">
+						<?php echo $this->getReviewsSummaryHtml($_product, 'default', false)?>
+						<?php /*echo $this->getChildHtml('product_type_availability');*/ ?> 
+					</div>
+                    
+					<div class="shipping-info">
+                    	<span class="label-free-shipping"><?php echo $this->__('LE SPESE DI SPEDIZIONE SONO GRATUITE!') ?></span> 
+                    </div>
+					<?php echo $this->getChildHtml('alert_urls') ?>
+
+					<?php echo $this->getChildHtml('other');?>
+					<?php if ($this->getChildHtml('product_options') && $this->hasOptions() ):?>
+						
+							<?php echo $this->getChildHtml('product_options');?>
+						
+					<?php endif;?>
+					
+					<div class="product-collateral toggle-content tabs">
+						<?php if ($detailedInfoGroup = $this->getChildGroup('detailed_info', 'getChildHtml')):?>
+							<dl id="collateral-tabs" class="collateral-tabs">
+								<?php if ($_product->getMateriale()):?>
+									<dt class="tab"><span><?php echo $this->__('Materiale') ?></span></dt>
+									<dd class="tab-container">
+										<div class="tab-content"><?php echo $_product->getAttributeText('materiale'); ?></div>
+									</dd>
+								<?php endif;?>
+                                <?php 
+								$catBracciali = 0;
+								$catScarpe = 0;
+								$catBorse = 0; 
+								$catCalze = 0; 
+								$cIds = $_product->getCategoryIds();
+								if (in_array(5, $cIds)) {
+									$catScarpe = 1;
+								}
+								if (in_array(6, $cIds)) {
+									$catBorse = 1;
+								}
+								if (in_array(75, $cIds)) {
+									$catCalze = 1;
+								}
+								if ($catScarpe == 1 || $catBorse == 1 || $catCalze == 1){
+								?>
+								<dt class="tab"><span><?php echo $this->__('LAVAGGIO') ?></span></dt>
+								<dd class="tab-container">
+									<div class="tab-content tab-lavaggio ">
+                                    <?php 
+									if ($catScarpe == 1){  
+										echo $this->getLayout()->createBlock('cms/block')->setBlockId('block_lavaggio_scarpe')->toHtml(); 
+									} elseif ($catBorse == 1){
+										echo $this->getLayout()->createBlock('cms/block')->setBlockId('block_lavaggio_borse')->toHtml(); 
+									} elseif ($catCalze == 1){
+										echo $this->getLayout()->createBlock('cms/block')->setBlockId('block_lavaggio_calze')->toHtml(); 
+									} 
+									?>
+                                    </div>
+								</dd>
+                                <?php } ?>
+                                <?php
+								$cIds = $_product->getCategoryIds();
+								if (in_array(5, $cIds)) {
+									$catScarpe = 1;
+								}
+								if (in_array(109, $cIds)) {
+									$catBracciali = 1;
+								}
+								
+								if ($catBracciali == 1 || $catScarpe == 1 ){
+								?>
+								<div class="taglie-tab"><span class="required_field_img"><?php echo $this->__('GUIDA ALLE TAGLIE') ?></span></div>
+								<div class="block block-subscribe" id="im_product_popup" style="display:none">
+                                <?php if ($catBracciali == 1){  ?>
+										<img src="http://demo.l4k3.it/media/wysiwyg/static/misurapolsoL4k3.jpg"/>
+								<?php	} elseif ($catScarpe == 1){ ?>
+										<img src="http://demo.l4k3.it/media/wysiwyg/static/tabellaTaglie.jpg"/> 
+								<?php	} ?>
+                                    
+                                </div>
+								<script type="text/javascript">
+                                    jQuery(function($) {
+                                        $('.required_field_img').fancybox({
+                                            'padding': '20px',
+                                            'autoScale': true,
+                                            'transitionIn': 'fade',
+                                            'transitionOut': 'fade',
+                                            'type': 'inline',
+                                            'href': '#im_product_popup',
+                                            'onComplete': function() {
+                                                
+                                            },
+                                            'tpl': { 
+                                                closeBtn: '<a title="Close" class="fancybox-item fancybox-close fancybox-newsletter-close" href="javascript:;"></a>' 
+                                            },
+                                            'helpers': {
+                                                overlay: {
+                                                    locked: false
+                                                }
+                                            }
+                                        });
+                                    });
+                                </script>
+                                <?php } ?>
+								<dt class="tab"><span><?php echo $this->__('RESO') ?></span></dt>
+								<dd class="tab-container">
+									<div class="tab-content tab-reso">
+                                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('block_reso_prodotti')->toHtml(); ?>
+                                    
+                                    </div>
+								</dd>
+								<?php /* foreach ($detailedInfoGroup as $alias => $html):?>
+									<dt class="tab"><span><?php echo $this->escapeHtml($this->getChildData($alias, 'title')) ?></span></dt>
+									<dd class="tab-container">
+										<div class="tab-content"><?php echo $html ?></div>
+									</dd>
+								<?php endforeach; */ ?>
+							</dl>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+            
+
+            <div class="product-wrapper-add">
+				<div class="container">
+					<div class="add-to-cart-wrapper">
+						<?php /*?><?php echo $this->getChildHtml('product_type_data') ?><?php */?>
+						<?php echo $this->getChildHtml('extrahint') ?>
+
+						<div class="add-to-box">
+							<?php echo $this->getChildHtml('addtocart') ?>
+						</div>
+					</div>
+                    <?php if($_product->isSaleable() && $comingSoon == 'No'){ ?>
+                    	<?php if ($this->hasOptions()):?>
+                        <div class="toggle-view-content toggle-view-taglia">
+                            <div class="toggle-add-title">
+                                Taglia
+                            </div>
+                            <div class="toggle-add-content">
+                                <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                                    <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                                <?php endif;?>
+                            </div>
+                        </div>
+                        <?php endif; ?>
+                    <?php } ?>
+					<?php if($_product->isSaleable() && $comingSoon == 'No' ){ ?>  
+                    <div class="toggle-view-content toggle-view-qty">
+						<div class="toggle-add-title">
+							Quantita
+						</div>
+						<div class="toggle-add-content">
+							<?php if(!$_product->isGrouped()): ?>
+								<div class="qty-wrapper">
+									<div class="custom-qty">
+										<button  type="button" class="reduced items" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty > 1 ) result.value--;return false;">
+											<i class="fa fa-minus"></i>
+										</button>
+										<input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+										<button  type="button" class="increase items" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;">
+											<i class="fa fa-plus"></i>
+										</button>
+										
+									</div>
+								</div>
+							<?php endif; ?>
+						</div>
+					</div>
+                    <?php } ?>
+                    
+					<div class="clearer"></div>
+					<?php if ($_product->isSaleable() && $this->hasOptions()):?>
+						<?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+					<?php endif;?>
+				</div>
+				<script>
+					jQuery(document).ready(function($){
+						jQuery('.toggle-view-taglia .toggle-add-title').click(function(e) {
+							jQuery(this).toggleClass('active');
+							jQuery('.toggle-view-taglia .toggle-add-content').toggleClass('active');
+							jQuery('.toggle-view-qty .toggle-add-content').removeClass('active');
+							jQuery('.toggle-view-qty .toggle-add-title').removeClass('active');
+							e.preventDefault();
+						});
+
+						jQuery('.toggle-view-qty .toggle-add-title').click(function(e) {
+							jQuery(this).toggleClass('active');
+							jQuery('.toggle-view-qty .toggle-add-content').toggleClass('active');
+							jQuery('.toggle-view-taglia .toggle-add-content').removeClass('active');
+							jQuery('.toggle-view-taglia .toggle-add-title').removeClass('active');
+							e.preventDefault();
+						});
+					
+					});					
+				</script>				<script>					jQuery('select#attribute169 option:first-child').text("<?php echo $this->__('Scegli Misura Cassa'); ?>");					jQuery('select#attribute171 option:first-child').text("<?php echo $this->__('Scegli Misura Cinturino'); ?>");				</script>
+			</div>
+        </form>
+        <script type="text/javascript">
+        //<![CDATA[
+            var productAddToCartForm = new VarienForm('product_addtocart_form');
+            productAddToCartForm.submit = function(button, url) {
+                if (this.validator.validate()) {					jQuery('.product-wrapper-add .toggle-view-taglia').removeClass('required');
+                    var form = this.form;
+                    var oldUrl = form.action;
+
+                    if (url) {
+                       form.action = url;
+                    }
+                    var e = null;
+                    try {
+                        this.form.submit();
+                    } catch (e) {
+                    }
+                    this.form.action = oldUrl;
+                    if (e) {
+                        throw e;
+                    }
+
+                    if (button && button != 'undefined') {
+                        button.disabled = true;
+                    }
+                }else{					jQuery('.product-wrapper-add .toggle-view-taglia').addClass('required');				}
+            }.bind(productAddToCartForm);
+
+            productAddToCartForm.submitLight = function(button, url){
+                if(this.validator) {
+                    var nv = Validation.methods;
+                    delete Validation.methods['required-entry'];
+                    delete Validation.methods['validate-one-required'];
+                    delete Validation.methods['validate-one-required-by-name'];
+                    // Remove custom datetime validators
+                    for (var methodName in Validation.methods) {
+                        if (methodName.match(/^validate-datetime-.*/i)) {
+                            delete Validation.methods[methodName];
+                        }
+                    }
+
+                    if (this.validator.validate()) {
+                        if (url) {
+                            this.form.action = url;
+                        }
+                        this.form.submit();
+                    }
+                    Object.extend(Validation.methods, nv);
+                }
+            }.bind(productAddToCartForm);
+        //]]>
+        </script>
+    </div>
+
+    <div class="container">
+	<?php echo $this->getChildHtml('related_products') ?>
+    <?php echo $this->getChildHtml('upsell_products') ?>
+	</div>
+    <?php // echo $this->getChildHtml('product_additional_data') ?>
+
+</div>

@@ -1,0 +1,48 @@
+<?php
+/**
+ * @category    Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     http://fishpig.co.uk/license.txt
+ * @author      Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<?php $post = $this->getPost() ?>
+<div class="post-list-item">
+	<div class="post-img">
+		<?php/*  if ($post->isViewableForVisitor()): ?>
+			<?php if ($featuredImage = $post->getFeaturedImage()): ?>
+				<div class="featured-image left">
+					<a href="<?php echo $post->getPermalink() ?>" title="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"><img src="<?php echo $featuredImage->getPostThumbnailImage() ?>" alt="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"/></a>
+				</div>
+				
+				
+			<?php endif; ?>
+		<?php else: ?>
+			<?php echo $this->getPasswordProtectHtml($post) ?>
+		<?php endif; */ ?>
+	</div>
+	<div class="post-text">
+		<?php // echo $this->getBeforePostContentHtml() ?>
+		<div class="name-post">
+			<h2><a href="<?php echo $post->getPermalink() ?>" title="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"><?php echo $this->escapeHtml($post->getPostTitle()) ?></a></h2>
+			<div class="date-post"><?php echo $featuredImage->getpost_date() ?></div>
+		</div>
+		<?php // echo $this->getAfterPostContentHtml() ?>
+		<div class="post-derc">
+			<?php if ($post->isViewableForVisitor()): ?>
+				<?php if ($this->displayExcerptInFeed() || $post->hasMoreTag()): ?>
+					<?php echo $post->getPostExcerpt() ?>
+				<?php else: ?>
+				<?php echo $this->helper('core/string')->truncate($post->getPostContent(),400) ?>
+				<?php// echo substr($_helper->productAttribute($_product, $_product->getName(), 'name'),0, 26) ?>
+					<?php // echo $post->getPostContent() ?>
+				<?php endif; ?>
+			<?php else: ?>
+				<?php echo $this->getPasswordProtectHtml($post) ?>
+			<?php endif; ?>
+			<div class="btn-post"><a href="<?php echo $post->getPermalink() ?>"><?php echo $this->__('LEGGI L’ARTICOLO') ?></a></div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	
+</div>

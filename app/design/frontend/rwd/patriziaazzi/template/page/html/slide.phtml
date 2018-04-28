@@ -1,0 +1,40 @@
+﻿<div class="the-slideshow-wrapper">
+	<div class="the-slideshow ">
+		<div id="main-slider" class="owl-carousel owl-theme slides">
+			<?php echo $this->getLayout()->createBlock("cms/block")->setBlockId("block_slide")->toHtml();?>
+		</div>
+		
+	</div> <!-- end: the-slideshow -->
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    jQuery(function($) {
+        $('#main-slider').owlCarousel({
+                //items: 1,
+                autoplay: false,
+                autoplayHoverPause: true,
+                loop: true,
+                margin: 0,
+				animateOut: 'fadeOut',
+				animateIn: 'fadeIn',
+				transitionStyle : "fade",
+                dots: true,
+                nav: true,
+                navText: [
+                    "<i class='fa fa-angle-left'></i>",
+                    "<i class='fa fa-angle-right'></i>"
+                ],
+                responsiveRefreshRate: 100,
+                responsive: {
+                    0: {items: 1},
+                    479: {items: 1},
+                    768: {items: 1},
+                    991: {items: 1},
+                    1024: {items: 1}
+                }
+            }); //end: owl
+
+    });
+//]]>
+</script>
+

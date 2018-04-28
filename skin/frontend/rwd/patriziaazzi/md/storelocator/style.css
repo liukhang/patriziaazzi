@@ -1,0 +1,280 @@
+#map { position:relative!important; width: 100%; min-height:400px; }#main iframe { height: 500px; width: 100%; } 
+#side_bar { width: 100%;}
+.map { width:100%; vertical-align:top;font-size:11px;}
+.side_bar {
+    box-shadow: 3px -10px 10px rgba(0, 0, 0, 0.3); 
+    font-size: 11px;
+    overflow: auto;
+    padding: 0 0 4px 4px;
+    position: relative;
+    vertical-align: top;
+    width: 32%;
+    z-index: 999999999;
+}
+.storelocator, input, select {font-family: Arial, sans-serif; font-size:12px;}
+.storewrap { margin: 0 0 15px;} 
+
+.clear {
+    clear: both;
+}
+#search-left {
+    margin: 15px 0;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;text-align: center;
+}
+#headerContainer .page-title {
+    display: inline-block;
+    margin: 0; vertical-align: top;
+}
+#headerContainer .head-left {
+    display: inline-block;
+    float: none;
+}
+
+.head-left #search-left {
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+.contact-content #headerContainer .page-title h1 {
+    font-size: 22px;
+    line-height: 42px;
+	font-weight: 400;
+    margin: 0 15px 0 0;
+}
+#side_bar .marker a {
+    color: #000;
+    text-decoration: none;
+}
+#side_bar ul {   height:auto; -moz-user-select: none;    list-style-type: none;    margin: 0 -15px;    overflow-x: hidden;    overflow-y: auto;    padding: 0;    width: 100%;	width: 100%;}#side_bar .heading {  padding-left: 60px;  background: none repeat scroll 0 0 #FFFFFF;    border-bottom: 1px solid #E5E5E5;    border-top: 1px solid #E5E5E5;    color: #CCCCCC;    font-family: "CustomAdiHausPSBold",arial,helvetica,sans-serif;    font-size: 14px;    font-weight: normal;    height: 44px;    left: 0;    line-height: 44px;    margin-left: 0;    position: relative;    text-align: left;    text-decoration: none;    text-transform: uppercase;        z-index: 2;}
+#side_bar ul li { 
+	box-sizing: border-box;
+    color: #000000;
+    display: inline-block;
+    float: left;
+    margin-bottom: 30px;
+    margin-left: 0;
+    padding: 0 15px;
+    position: relative;
+    width: 25%; }
+.content-map #side_bar ul li:nth-child(4n+1) {
+    clear: both;
+}	
+.store_item .store_item_content {
+    background: #f7f7f7 none repeat scroll 0 0;
+    padding: 15px;
+	min-height: 180px;
+}
+.color-km {
+    clear: both;
+    color: #00b22d;
+    display: block;
+    line-height: 26px;
+    margin-top: 15px;
+    overflow: hidden;
+    text-align: left;
+    vertical-align: bottom;
+}
+	
+#side_bar .whiteLine {      height: 1px;    margin-bottom: 13px;    position: relative;    display: none;width: 100%;} 
+#side_bar .marker {float: left; left: 0; text-align: center; top: 12px;width: auto;margin-right: 10px;} 
+#side_bar .marker .list-marker{ display: block; height: 35px; margin-left: 0; width: 35px;}
+#side_bar .text {margin: 2px 0;width: 100%;}
+#side_bar .text a {    color: #000;    font-size: 12px;    text-decoration: none;}
+#side_bar .text h2 {color: #000000;
+    font-size: 18px;
+	font-weight: 600;
+    line-height: 18px;
+    margin: 0 0 10px;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    text-transform: capitalize;}
+#side_bar div.dottedLine {    /* background: url("http://discover.adidas.de/storefinder/assets/css/../images/dotted-line-black.png") repeat scroll 0 0 rgba(0, 0, 0, 0); */    display: block;    height: 1px;    overflow-y: hidden;    width: 100%;}
+.store_item .text p {  font-size: 13px;clear: both;
+    margin: 0;}  
+#side_bar .no-flagship-color .marker a {
+	bottom: 0;
+    left: 10px;
+    position: absolute;
+}
+.content-map .page_navigation {
+    overflow: hidden;
+    text-align: center;
+}
+.content-map .info_text {
+    margin-bottom: 30px;
+}
+.collect-map {
+    display: inline-block;
+    margin: 12px 0 0 10px;
+    vertical-align: top;
+}
+
+#addressInput{  background: none repeat scroll 0 0 #eee;
+    border: 1px solid #eee;
+    color: #000000;
+    float: left;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 42px;
+    padding: 0 0 0 10px;
+    text-align: left;
+    text-decoration: none;
+    width: 500px;}
+#headerContainer .inputContainer {   background: #fff float: left;    line-height: 49px !important;}#headerContainer div.searchButton {   float: left;}#headerContainer div.searchButton .normal {   /*  height: 41px;    position: relative;    width: 41px;	background: url("http://discover.adidas.de/storefinder/assets/css/../images/spritesheets/buttons-safaf8bf1d2.png") no-repeat scroll 0 -445px rgba(0, 0, 0, 0); */}
+/* #headerContainer div.searchButton .highlighted {    background-position: 0 -404px;    height: 41px;    position: absolute;    top: 0;    width: 41px;	background: url("http://discover.adidas.de/storefinder/assets/css/../images/spritesheets/buttons-safaf8bf1d2.png") no-repeat scroll 0 -404px rgba(0, 0, 0, 0);} */
+#filters {    margin: 12px 0 15px;	float:left;}#topTitle {cursor: default;float: left;padding-left: 60px;padding-top: 14px;position: relative;} 
+.head-left {    float: left;  }
+#headerContainer div.searchButton .highlighted.btn-search{
+	background: #bbbbbb none repeat scroll 0 0;
+    border-radius: 0;
+    color: #333333;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 40px;
+    margin-left: 15px;
+    padding: 1px 50px;
+    text-transform: uppercase;
+}
+
+#side_bar ul li.store_item:hover {
+    /* color: #ce0016; */
+}
+#side_bar ul li.store_item:hover .text h2, #side_bar ul li.store_item:hover .text a{/* color: #9c2a25; */}
+
+#side_bar ul li.no-flagship-color{   color: #333333; }
+#side_bar ul li.no-flagship-color .text h2,#side_bar ul li.no-flagship-color .text a,#side_bar ul li.no-flagship-color .marker a{color: #000000;}
+#side_bar ul li.no-flagship-color .text h2:hover, #side_bar ul li.no-flagship-color .text a:hover, #side_bar ul li.no-flagship-color .marker a:hover{/* color: #ce0016; */}
+
+.head-right {
+    float: right;
+    padding-right: 25px;
+}
+.search-left {
+    position: relative;
+}
+.head-right div.searchButton {    cursor: pointer;    padding-right: 5px;    position: absolute;    right: 0;    top: 5px;}.head-right div.searchButton .normal {    background-position: 0 -445px;    height: 41px;    position: relative;    width: 41px;	background: url("http://discover.adidas.de/storefinder/assets/css/../images/spritesheets/buttons-safaf8bf1d2.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0)}.head-right div.searchButton .highlighted {    background-position: 0 -404px;    height: 41px;    position: absolute;    top: 0;    width: 41px;	background: url("http://discover.adidas.de/storefinder/assets/css/../images/spritesheets/buttons-safaf8bf1d2.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0)}
+.hide div { background: url("http://discover.adidas.de/storefinder/assets/css/../images/spritesheets/icons-s8eb5bb4072.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0)}
+.hide .black { background-position: 0 -40px !important; }
+.hide { background: none repeat scroll 0 0 rgba(0, 0, 0, 0); border: 0 none; float: right; margin: 0; overflow: visible; width: 44px; }
+.hide .icon {background-position: 0 -56px;height: 8px;opacity: 0.3;position: absolute;right: 20px;top: 18px;width: 6px;}
+.searchform {float: right;position: relative;width: 100%; } 
+.search-autocomplete2 {
+    background: none repeat scroll 0 0 #FFFFFF;
+
+    height: 181px;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 49px;
+    width: 80%;
+}
+#search_autocomplete2 > ul {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color #CCCCCC #CCCCCC;
+    border-image: none;
+    border-right: 1px solid #CCCCCC;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#listsearch > li:hover { background: none repeat scroll 0 0 #E2E2E2; cursor: pointer; }
+#listsearch > li { border-bottom: 1px solid #E5E5E5; padding: 10px 15px; }
+#result_search {
+    clear: both;
+    left: 0;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+}
+#finter .clr {
+    margin-right: 25px;
+}
+#result_search li:hover {
+    background: none repeat scroll 0 0 #333;
+    color: #fff;
+}
+#result_search li {
+    padding-left: 5px;
+}
+
+
+
+
+
+
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+	/* .side_bar{ display:none !important}
+	.head-left{ display:none !important} */
+	.head-right {float: none;padding-right:0;}
+	#main {min-width: 0;}
+	.js_dropdown{float:left !important;}
+	header, header #header-wrap { min-width: inherit;}
+	#headerContainer{min-width: inherit;}
+}
+
+
+/* select */
+
+.js_dropdown {background: linear-gradient(to bottom, #4C4C4C 0%, #303030 100%) repeat scroll 0 0 rgba(0, 0, 0, 0); border: 1px solid #4C4C4C; border-radius: 4px;position:relative;cursor:pointer;padding:1px;min-height:20px;height: 25px; line-height: 45px;width: 148px !important; color: #fff; font-family: "CustomAdiHausPSBold",arial,helvetica,sans-serif; font-size: 11px; font-weight: normal; line-height: 100%; text-align: left; text-transform: uppercase;float:right}
+.js_selectedText { font-size: 13px; font-weight: bold; height: 25px; line-height: 28px; overflow: hidden; padding-left: 15px; white-space: nowrap; }
+.js_dropdownarrow { background: url("http://clients.osworlds.com/w_lgn/wp-content/themes/lgn/images/icons-s8eb5bb4072.png") no-repeat scroll 0 -22px rgba(0, 0, 0, 0); height: 5px; margin-top: -3px; opacity: 0.3; position: absolute; right: 10px; top: 50%; width: 7px; }
+.js_dropon{}
+.js_options {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 5px #DDDDDD;
+    display: none;
+    list-style: none outside none;
+    margin: 1px 0 0 -2px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+    position: absolute;
+    z-index: 2000;
+	height: auto;
+	
+}
+.js_optiongroup,.js_option{ padding:2px 2px 2px 15px; line-height: 22px; display:block; border-bottom:solid 1px #ddd; overflow:hidden; text-decoration:none; color:#333; cursor:pointer;}
+.js_option:hover{ background:#f3f3f3; color:#000;}
+.js_optiongroup { background:#cccccc; color:#000;}
+.js_selected {cursor:pointer;background:#dddddd;}
+
+
+.search-bottom {
+    float: left;
+    width: 100%; padding: 0 10px;
+}
+.search-bottom .js_dropdown {
+    background: linear-gradient(to bottom, #DDDDDD 0%, #B3B3B3 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: #E1E1E1;
+    float: left;
+    margin-right: 20px;
+}
+
+.content-map {margin-top: 15px;
+}
+.collect-map h4 {
+    font-size: 14px;
+}
+.map-detail img {
+    width: 100%;
+}
+
+
+

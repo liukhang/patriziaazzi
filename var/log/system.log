@@ -1,0 +1,2 @@
+2017-12-22T11:23:35+00:00 ERR (3): Warning: PDOStatement::execute(): MySQL server has gone away  in H:\xampp\htdocs\m1.9-patrizia\lib\Zend\Db\Statement\Pdo.php on line 228
+2017-12-22T11:23:35+00:00 ERR (3): Warning: PDOStatement::execute(): Error reading result set's header  in H:\xampp\htdocs\m1.9-patrizia\lib\Zend\Db\Statement\Pdo.php on line 228

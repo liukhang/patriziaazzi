@@ -1,0 +1,32 @@
+<?php
+/**
+ * @category    Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     http://fishpig.co.uk/license.txt
+ * @author      Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<?php $posts = $this->getPosts() ?>
+<?php if (count($posts) > 0): ?>
+	<div class="post-list">
+		<div class="waterfall">
+		</div>
+		<script id="waterfall-template" type="text/template">
+			<?php foreach($posts as $post): ?>
+				<ul class="list-group">
+					<?php echo $this->getPostRenderer($post)->toHtml() ?>
+				 </ul>
+				<?php endforeach; ?>
+		</script>
+		<script>
+			jQuery(document).ready(function($){
+				 jQuery('.waterfall')
+        .data('bootstrap-waterfall-template', jQuery('#waterfall-template').html())
+        .waterfall();
+			});	
+      
+    </script>
+		<script type="text/javascript">decorateList($('post-list'));</script>
+		<?php echo $this->getPagerHtml() ?>
+	</div>
+<?php endif; ?>

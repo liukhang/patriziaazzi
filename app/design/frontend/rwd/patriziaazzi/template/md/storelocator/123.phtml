@@ -1,0 +1,24 @@
+<?php
+$items = $this->getLocation();
+$search=$_POST['addressInput'];
+$search_country=$_POST['countryInput'];
+$record=0;
+?>
+<ul>
+	<?php
+		foreach($items as $item)
+		{
+			if(( preg_match('/'.$search.'/i', $item['address_display']) )&&($item['country_code']==$search_country))
+			{
+			$record++;
+	?>
+				<li onclick="changevalue('<?php echo $item['address_display']  ?>');return false;"><?php echo $item['address_display']  ?> </li>
+	<?php
+			}
+		}
+		if($record==0)
+		{
+			echo 'not record';
+		}
+	?>
+</ul>

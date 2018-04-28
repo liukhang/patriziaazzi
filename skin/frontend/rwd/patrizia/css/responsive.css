@@ -1,0 +1,142 @@
+@media only screen and (min-width:1400px){
+    body.cms-index-index.cms-home .main-container{
+        max-width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+    .container{
+	    width: 1360px;
+	    margin: 0 auto;
+	}
+
+	.page-header-container {
+	    position: relative;
+	    padding-left: 15%;
+	    margin: 0 auto;
+	}
+	.newsletter .left .new-text{
+		float: right;
+	}
+}
+@media only screen and (min-width:1200px){
+    body.cms-index-index.cms-home .main-container{
+		max-width: 100%;
+	    padding: 0;
+	    margin: 0 auto;
+	    margin-top: 70px;
+    }
+}
+@media only screen and (max-width: 795px){
+	.opc .section .step-title {
+	    position: static;
+	    width: 100%;
+	}
+	.opc .section .step {
+	    min-height: inherit;
+	    padding: 20px;
+	    width: 100%;
+	}
+}
+@media only screen and (min-width: 771px){
+	.page-header {
+	    max-width: 100%;
+	    margin: 0 auto;
+	    padding: 0 30px;
+	}
+	.skip-account {
+	    padding: 0 17px;
+	}
+	#header-cart.skip-active{
+		right: -30px;
+		border: none;
+	    -moz-box-shadow: 0 0 5px #888;
+    	-webkit-box-shadow: 0 0 5px#888;
+    	box-shadow: 0 0 5px #888;
+	}
+}
+@media only screen and (max-width: 770px){
+	.button.search-button.search_open{
+		display: none;
+	}
+	.skip-link{
+		width: 25%;
+		border: none;
+	}
+	.skip-nav{
+		width: 25%;
+	}
+	#header-search {
+	    width: 100%;
+	    height: auto;
+	}
+	#search_mini_form .input-box {
+	    width: 100%;
+	}
+	.account-cart-wrapper {
+	    position: unset; 
+	}
+	.page-header{
+		position: sticky;
+	}
+}
+@media only screen and (max-width: 768px){
+	.page-header-container #header-search #search{
+		display: block !important;
+	}
+	button.button.search-button.default{
+		display: block;
+	}
+	.button.search-button.custom{
+	    display: none;
+	}
+	.h-left {
+	    display: block;
+	    float: none;
+	}
+	.h-mid {
+	    display: block;
+	    float: none;
+	}
+	.logo .small{
+		display: inline-block;
+	}
+	.logo{
+		display: inline-block;
+		float: none;
+	}
+	.h-right {
+	    display: inline-block;
+	    float: left;
+	    text-align: center;
+	    width: 100%;
+	}
+	.product-view .product-shop{
+		width: 100%;
+	}
+	.product-img-box{
+		width: 100%;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.page-header-container #header-search #search{
+		display: block !important;
+	}
+	button.button.search-button.default{
+		display: block;
+	}
+	button.button.search-button.custom{
+		display: none;
+	}
+	.h-left {
+	    display: block;
+	    float: none;
+	}
+	.h-mid {
+	    display: block;
+	    float: none;
+	}
+	#header-account.skip-active{
+		top: 0;
+		right: auto;
+	}
+}
