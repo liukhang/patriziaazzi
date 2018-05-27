@@ -1,0 +1,51 @@
+<?php
+	$attribute1 = Mage::getSingleton('eav/config')->getAttribute('catalog_product', 'ps_genere');
+	if ($attribute1->usesSource()) {
+    $options1 = $attribute1->getSource()->getAllOptions(false);
+	}
+	
+	$attribute2 = Mage::getSingleton('eav/config')->getAttribute('catalog_product', 'ps_taglia');
+	if ($attribute2->usesSource()) {
+    $options2 = $attribute2->getSource()->getAllOptions(false);
+	}
+?>	
+	<div>
+		<p>Categoria:</p>
+	 <select name="ps_genere" class="ps_genere">
+	 <option value="">Seleziona</option>
+<?php	 
+	 foreach($options1 as $_options1){
+?>		 
+		<option value="<?php echo $_options1['value'] ?>"><?php echo $_options1['label'] ?></option>
+<?php		
+	}  
+?>
+	</select> 
+	</div>
+	
+	<div>
+		<p>Taglia:</p> 
+	 <select name="ps_taglia" class="ps_taglia">
+	 <option value="">Seleziona</option>
+<?php	 
+	 foreach($options2 as $_options2){
+?>		 
+		<option value="<?php echo $_options2['value'] ?>"><?php echo $_options2['label'] ?></option>
+<?php		
+	}  
+?>
+	</select> 
+	</div>
+<script>
+	jQuery('.ps_genere').change(function(){
+		if(jQuery(this).val()!=""){
+		window.location.href="shop?ps_genere="+jQuery(this).val();
+		}
+	});
+	jQuery('.ps_taglia').change(function(){
+		if(jQuery(this).val()!=""){
+		window.location.href="shop?ps_taglia="+jQuery(this).val();
+		}
+	});
+</script>	
+	

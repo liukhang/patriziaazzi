@@ -1,0 +1,55 @@
+<?php
+/**
+ * @category    Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     http://fishpig.co.uk/license.txt
+ * @author      Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<div class="categories-wp">
+<?php // echo $this->getLayout()->createBlock('wordpress/sidebar_widget_categories')->setTemplate('wordpress/sidebar/widget/categories.phtml')->toHtml() ?>
+</div>
+<div class="blogpage-content post-detail">
+	<div class="back-post">
+		<span onclick="goBack()"><< Torna all' elenco</span>
+	</div>
+<?php $post = $this->getPost() ?>
+<?php if ($post): ?>
+	<?php $helper = $this->helper('wordpress') ?>
+	<?php $author = $post->getAuthor() ?>
+	<div class="post-img ">
+		<?php if ($post->isViewableForVisitor()): ?>
+			<?php if ($featuredImage = $post->getFeaturedImage()): ?>
+				<div class="featured-image left"><img src="<?php echo $featuredImage->getFullSizeImage() ?>" alt="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"/></div>
+			<?php endif; ?>
+		<?php else: ?>
+			<?php echo $this->getPasswordProtectHtml() ?>
+		<?php endif; ?>
+		
+	</div>
+	<div class="post-view">
+		<h1 class="post-title"><?php echo $this->escapeHtml($post->getPostTitle()) ?></h1>
+		<span class="date-post"><?php echo $featuredImage->getpost_date() ?></span>
+		<div class="content-view-post">
+			<?php // echo $this->getBeforePostContentHtml() ?>
+			<div class="post-entry entry std<?php if ($post->getFeaturedImage()): ?> post-entry-with-image<?php endif; ?>">
+				<?php if ($post->isViewableForVisitor()): ?>
+					
+					<?php echo $post->getPostContent() ?>
+				<?php else: ?>
+					<?php echo $this->getPasswordProtectHtml() ?>
+				<?php endif; ?>
+			</div>
+		</div>
+		<?php // echo $this->getAfterPostContentHtml() ?>
+		<?php // echo $this->getCommentsHtml() ?>
+	</div>
+<?php endif; ?>
+
+</div>
+<script>
+function goBack() {
+	
+    window.history.back();
+}
+</script>

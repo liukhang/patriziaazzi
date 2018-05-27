@@ -1,0 +1,51 @@
+<?php
+/**
+ * @category    Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     http://fishpig.co.uk/license.txt
+ * @author      Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<?php $post = $this->getPost() ?>
+<li class="list-group-item">
+	  <div class="post-img">
+		<?php if ($featuredImage = $post->getFeaturedImage()): ?>
+			<div class="featured-image left">
+				<a href="<?php /*echo $post->getPermalink()*/ ?><?php if($post->getMetaValue('pdf')!=""){ ?><?php echo $post->getPdfField() ?><?php } ?>" title="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"><img src="<?php echo $featuredImage->getFullSizeImage() ?>" alt="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"/></a>
+				<?php if($post->getMetaValue('pdf')!=""){ ?>
+					<a class="pdf-link-hover" href="<?php echo $post->getPdfField() ?>"><?php echo $this->__('Scarica Pdf') ?><i class="fa fa-file-pdf-o"></i></a>
+				<?php } ?>
+			</div>
+		<?php endif; ?>
+	</div>
+</li>
+<li class="list-group-item">
+	<div class="post-text">
+	<div class="name-post">
+		<h2><a href="<?php echo $post->getPermalink() ?>" title="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"><?php echo $this->escapeHtml($post->getPostTitle()) ?></a></h2>
+		
+		<?php if($post->getMetaValue('pdf')!=""){ ?> 
+			<a class="pdf-link" href="<?php /*echo $post->getPdfField()*/ ?><?php if($post->getMetaValue('pdf')!=""){ ?><?php echo $post->getPdfField() ?><?php } ?>" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+		<?php } ?>
+	</div>
+	<?php /* <div class="post-derc">
+		<?php if ($post->isViewableForVisitor()): ?>
+			
+			<?php if ($this->displayExcerptInFeed() || $post->hasMoreTag()): ?>
+				<?php echo $post->getPostExcerpt() ?>
+			<?php else: ?>
+				<?php //  echo $post->getPostContent() ?>
+				<?php //  Matteo: aggiunto strip_tags in modo da non avere problemi quando si tronca un testo in un tag ?>
+				<?php echo strip_tags($this->helper('core/string')->truncate($post->getPostContent(),400)) ?>
+			<?php endif; ?>
+		<?php else: ?>
+			<?php echo $this->getPasswordProtectHtml($post) ?>
+		<?php endif; ?>
+		<div class="btn-post"><a href="<?php echo $post->getPermalink() ?>"><?php echo $this->__('LEGGI L’ARTICOLO') ?></a></div>
+	</div> */ ?>
+	<?php // echo $this->getBeforePostContentHtml() ?>
+	
+	</div>
+</li>
+	
+	

@@ -1,0 +1,42 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/mw_advancategores.css')?>" />
+
+<?php $activecategories = Mage::getStoreConfig("advancecategories/advancecategories/activecategories");?>
+<?php $columnscategories = Mage::getStoreConfig("advancecategories/advancecategories/columnscategories");?>
+<?php $categories=$this->_getCategoryCollection();?>
+<?php if(!$categories->count()  || $activecategories!=1): ?>
+<?php echo $this->getChildHtml('product_list_old') ;?>
+<?php else: ?>
+<div class="mw_advancecategory">
+	<?php $_collectionSize = $categories->count(); ?>
+    <?php if($columnscategories!=0 && $columnscategories!=''){?>
+    <?php $_columnCount = $columnscategories; ?><?php }else{?>
+    <?php $_columnCount = 3; }?>
+    <?php $i=0; foreach ($categories as $cat): ?>
+        <?php if ($i++%$_columnCount==0): ?>
+        <ul class="products-grid">
+        <?php endif ?>
+            <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+				<div class="category-item-center">
+					
+					<?php if($cat->getImageThumnail()!=null && $cat->getImageThumnail()!=""){?>
+					 <a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getImageThumnail() ?>" class="product-image"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)?>catalog/category/<?php echo $cat->getImageThumnail(); ?>" width="204" height="164" alt="<?php echo $cat->getAltTag() ?>" /></a> 
+					<?php } elseif($cat->getImageThumnail()!=null && $cat->getImageThumnail()!=""){?>
+					 <a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getImageThumnail() ?>" class="product-image"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)?>catalog/category/<?php echo $cat->getImageThumnail(); ?>" width="204" height="164" alt="<?php echo $cat->getAltTag() ?>" /></a>
+					<?php } else{?>
+					 <a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getImageThumnail() ?>" class="product-image"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)?>catalog/category/image_default.jpg" width="204" height="164" alt="<?php echo $cat->getAltTag() ?>"/>
+					 </a>
+					<?php }?>
+					<h2 class="product-name"><a href="<?php echo $cat->getUrl() ?>" title="<?php echo $this->htmlEscape($cat->getName()) ?>"><?php echo $this->htmlEscape($cat->getName()) ?></a></h2>
+				</div>
+            </li>
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+        </ul>
+        <?php endif ?>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+    
+</div>
+<?php endif; ?>
+
+
+

@@ -1,0 +1,35 @@
+
+
+<?php 
+$user_id = "410229132"; //userid
+$num_to_display = "2"; //instagram limits to max 20, but you can do less for your layout.
+$access_token = "410229132.9932e21.6eee3700508c4a06b1c8a28011ab4951";  
+?>
+
+<?php /*?><div class="block-padding">
+	<ul class="instagram-img"></ul>
+</div>
+<script>
+	jQuery(function() {
+		jQuery.ajax({
+			type: "GET",
+			dataType: "jsonp",
+			cache: false,
+			url: "https://api.instagram.com/v1/users/self/media/recent/?access_token=410229132.9932e21.6eee3700508c4a06b1c8a28011ab4951",
+			success: function(data) {
+				numertoshow = <?php echo $num_to_display ?>;
+				if(data.data.length < numertoshow)
+					numertoshow = data.data.length;
+				console.log(data.data);
+				 for (var i = 0; i < numertoshow; i++) {
+					
+						jQuery(".instagram-img").append("<li class=''><a target='_blank' href='" + data.data[i].link +"'><img src='" + data.data[i].images.low_resolution.url +"' alt='banner' class='img-responsive' ></img></a></li>");
+					
+				} 
+			}                  
+		});
+	});
+</script><?php */?>
+
+
+	
